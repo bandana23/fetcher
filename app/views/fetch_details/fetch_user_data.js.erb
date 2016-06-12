@@ -1,0 +1,10 @@
+$("#user_list").show();
+<% @result_set.each_pair do |k,v | %>
+  <% if k == "Twitter" %>
+    $("#twitter").html("<%= j render(:partial => 'feed_data', :locals => {:value => v, :key => k }) %>")
+  <% elsif k == "GitHub"%>
+    $("#github").html("<%= j render(:partial => 'feed_data', :locals => {:value => v, :key => k}) %>")
+  <% else %>
+    $("#ruby_gems").html("<%= j render(:partial => 'feed_data', :locals => {:value => v, :key => k}) %>")
+  <% end %>
+<% end %>
