@@ -10,7 +10,7 @@ Rails.application.routes.draw do
          post :fetch_user_data
       end
    end
-
+   
    # Example of regular route:
    #   get 'products/:id' => 'catalog#view'
 

@@ -15,8 +15,6 @@ default: &default
   pool: 5
   username: root
   password: root
-  socket: /tmp/mysql.sock
-
 development:
   <<: *default
   database: fetcher_development

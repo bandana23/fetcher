@@ -12,9 +12,16 @@ class FetchDetailsController < ApplicationController
       feed_result = fetch_feed(source,@username)
       @result_set[source] = feed_result
     end
-
+   
   end
 
+  def download_pdf
+    send_file(
+      "#{Rails.root}/public/fetch_details.pdf",
+      filename: "fetch_user_data.pdf",
+      type: "application/pdf"
+    )
+  end
 
   private
 
