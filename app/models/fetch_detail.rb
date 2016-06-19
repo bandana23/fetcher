@@ -4,7 +4,7 @@ class FetchDetail
   def self.fetch_twitter_data(username)
     begin
       TweetClient.user_timeline(username).take(10)
-    rescue => e
+    rescue Exception => e
       return {:user => username, :error => "Not Found"}
     end
   end
@@ -12,7 +12,7 @@ class FetchDetail
   def self.fetch_github_data(username)
     begin
       user = Octokit.user username
-    rescue => e
+    rescue Exception => e
       return {:user => username, :repos => nil,:error => "Not Found"}
     end
     if user.present?
@@ -30,7 +30,7 @@ class FetchDetail
       else
         return  {:user => username, :gems => [],:type=> "RubyGems",:error => "Not Found"}
       end
-    rescue => e
+    rescue Exception => e
       {:user => username, :gems => [],:type=> "RubyGems",:error => "Not Found"}
     end
   end
