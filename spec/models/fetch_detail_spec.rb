@@ -25,12 +25,12 @@ RSpec.describe FetchDetail, :type => :model do
         data = TweetClient.user_timeline(username).take(10)
         expect(FetchDetail.fetch_twitter_data(username)).to eq(data)
   	  end
-  	  # it "returns data from  fetch detail for github" do
-     #  	username = "test"
-     #    user = Octokit.user username
-     #    repo_list = user.rels[:repos].get.data
-     #    expect(FetchDetail.fetch_github_data(username)).to eq([repo_list])
-  	  #end
+      it "returns data from fetch detail for github" do
+		username = "test"
+		user = Octokit.user username
+		repo_list = user.rels[:repos].get.data
+		expect(FetchDetail.fetch_github_data(username)[:repos].count).to eq(repo_list.count)
+	  end
   	  it "returns data from  fetch detail for rubygem" do
   	  	username = "test"
       	uri = URI.parse("https://rubygems.org/api/v1/owners/#{username}/gems.json")
