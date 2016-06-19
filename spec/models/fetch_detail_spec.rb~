@@ -1,0 +1,23 @@
+require 'rails_helper'
+require 'spec_helper'
+
+RSpec.describe FetchDetail, :type => :model do
+      it "expects username for twiiter to fetch data" do
+	   username = "bandanap"
+	   #user= FetchDetail.should(:fetch_twitter_data).with(username).and_raise(Exception)
+	   allow(FetchDetail).to receive(:fetch_twitter_data).with(username)
+      end
+
+      it "expects username for github to fetch data" do
+	   username = "bandanap"
+	   #user= FetchDetail.should(:fetch_twitter_data).with(username).and_raise(Exception)
+	   allow(FetchDetail).to receive(:fetch_github_data).with(username)
+      end
+      it "expects username for rubygem to fetch data" do
+	   username = "bandanap"
+	   #user= FetchDetail.should(:fetch_twitter_data).with(username).and_raise(Exception)
+	   allow(FetchDetail).to receive(:fetch_rubygems_data).with(username)
+      end
+
+ 		
+end
